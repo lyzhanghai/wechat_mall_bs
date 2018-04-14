@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wechat_mall_coupons_view_tree" model="ir.ui.view">
+            <field name="name">wechat_mall.coupons.view_tree</field>
+            <field name="model">wechat_mall.coupons</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="优惠券">
+                    <field name="id" string="编号"/>
+                    <field name="name"/>
+                    <field name="dateEndType"/>
+                    <field name="dateEndDays"/>
+                    <field name="dateEnd"/>
+                    <field name="moneyHreshold"/>
+                    <field name="moneyMax"/>
+                    <field name="numberTotle"/>
+                    <field name="numberLeft"/>
+                    <field name="numberPersonMax"/>
+                    <field name="numberUsed"/>
+                </tree>
+            </field>
+        </record>
+        <record id="wechat_mall_coupons_view_form" model="ir.ui.view">
+            <field name="name">wechat_mall.coupons.view_form</field>
+            <field name="model">wechat_mall.coupons</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="优惠券" version="7.0" duplicate="0">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="dateEndType"/>
+                            <field name="dateEndDays"/>
+                            <field name="dateEnd"/>
+                            <field name="moneyHreshold"/>
+                            <field name="moneyMax"/>
+                            <field name="numberTotle"/>
+                            <field name="numberLeft"/>
+                            <field name="numberPersonMax"/>
+                            <field name="numberUsed"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="wechat_mall_coupons_action_82" model="ir.actions.act_window">
+            <field name="name">优惠券</field>
+            <field name="res_model">wechat_mall.coupons</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="domain">[('create_uid', '=', uid)]</field>
+        </record>
+
+        <menuitem action="wechat_mall_coupons_action_82" id="wechat_mall_coupons_menuitem_70" name="优惠券"
+                  parent="parent_menu_wechat_mall" sequence="0" groups="wechat_mall.group_wechat_mall_user"/>
+
+    </data>
+</odoo>

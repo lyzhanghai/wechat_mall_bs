@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="wechat_mall_notice_view_tree" model="ir.ui.view">
+            <field name="name">wechat_mall.notice.view_tree</field>
+            <field name="model">wechat_mall.notice</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="通知">
+                    <field name="id" string="编号"/>
+                    <field name="title"/>
+                    <field name="is_show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="wechat_mall_notice_view_form" model="ir.ui.view">
+            <field name="name">wechat_mall.notice.view_form</field>
+            <field name="model">wechat_mall.notice</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="通知" version="7.0" duplicate="0">
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="sort"/>
+                            <field name="is_show"/>
+                            <field name="content"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="wechat_mall_notice_action_82" model="ir.actions.act_window">
+            <field name="name">通知</field>
+            <field name="res_model">wechat_mall.notice</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+            <field name="domain">[('create_uid', '=', uid)]</field>
+        </record>
+
+        <menuitem action="wechat_mall_notice_action_82" id="wechat_mall_notice_menuitem_70" name="通知"
+                  parent="parent_menu_wechat_mall" sequence="0" groups="wechat_mall.group_wechat_mall_user"/>
+
+    </data>
+</odoo>
